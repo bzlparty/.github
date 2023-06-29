@@ -19,8 +19,3 @@ All projects are [_free software_](https://www.gnu.org/philosophy/free-sw.en.htm
 - Tools:
   - [Bazelisk](https://github.com/bazelbuild/bazelisk)
   - [Buildifier](https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md)
-
-## Ideas
-
-- [ ] Build documentation site for all projects
-- [ ] Push all modules to https://registry.bazel.build
