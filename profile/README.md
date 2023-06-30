@@ -1,4 +1,4 @@
-# bzlparty
+![bzlparty](https://github.com/bzlparty/.github/blob/main/profile/logo.jpg "bzlparty")
 
 This is a collection of extensions, tools and libaries for [Bazel](https://bazel.build).
 Most of the work is based and inspired by [bazel-contrib](https://github.com/bazel-contrib/) and [aspect-build](https://github.com/aspect-build/).
