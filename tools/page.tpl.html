@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ .Title }}</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+
+    {{ range .Css }} 
+    <link type="text/css" rel="stylesheet" href="{{ . }}" />
+    {{ end }}
+  </head>
+  <body>
+    {{ if ne .Package "" }}
+    <nav>
+      <a href="/"><img src="/assets/avatar.jpg" /></a>
+      <ul>
+        <li>
+          <a class="github-icon-link" href="https://github.com/bzlparty/{{ .Package }}/">
+            <i class="nf nf-seti-github"></i>
+          </a>
+        </li>
+        <li><a href="/{{ .Package }}/">README</a></li>
+        {{ range .NavLinks }}
+          <li><a href="{{ .Href }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    {{ end }}
+
+    {{ .Content }}
+    <footer>
+      <hr />
+      <p>bzlparty is free software, its source code is availabel on <a href="https://github.com/bzlparty">Github</a></p>
+      <p>Built with <i class="nf nf-seti-bazel"></i></p>
+    </footer>
+  </body>
+</html>

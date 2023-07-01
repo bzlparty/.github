@@ -1,0 +1,66 @@
+module(
+    name = "orga",
+    version = "0.0.0",
+    compatibility_level = 1,
+)
+
+bazel_dep(name = "rules_go", version = "0.40.1")
+bazel_dep(name = "rules_pkg", version = "0.9.1")
+bazel_dep(name = "lissom_css", version = "0.0.0")
+
+git_override(
+    module_name = "lissom_css",
+    commit = "00a08324134616a60bc3f21ebda92b349d19b731",
+    patch_strip = 1,
+    patches = [
+        "//patches:lissom_css_build_bazel.patch",
+        "//patches:lissom_css_module_bazel.patch",
+    ],
+    remote = "git@github.com:lissomware/css.git",
+)
+
+# dev dependencies
+
+bazel_dep(name = "gazelle", version = "0.31.1", dev_dependency = True)
+
+# bzlparty deps
+
+bazel_dep(name = "lib_common", version = "2.0.0")
+bazel_dep(name = "rules_webdev", version = "0.0.0")
+bazel_dep(name = "rules-template.sh", version = "0.0.0")
+
+git_override(
+    module_name = "lib_common",
+    commit = "c510607cd7b00ee15be74338adacb13492750cfc",
+    patch_strip = 1,
+    patches = [
+        "//patches:lib_common_build_bazel.patch",
+        "//patches:lib_common_module_bazel.patch",
+    ],
+    remote = "git@github.com:bzlparty/lib_common.git",
+)
+
+git_override(
+    module_name = "rules_webdev",
+    commit = "005958c00e8d40f7d21e03b2696377f1027993d7",
+    patch_strip = 1,
+    patches = [
+        "//patches:rules_webdev_build_bazel.patch",
+        "//patches:rules_webdev_module_bazel.patch",
+        "//patches:rules_webdev_docs_build_bazel.patch",
+    ],
+    remote = "git@github.com:bzlparty/rules_webdev.git",
+)
+
+local_path_override(
+    module_name = "rules-template.sh",
+    path = "../rules-template.sh",
+)
+
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.from_file(go_mod = "//:go.mod")
+
+use_repo(
+    go_deps,
+    "com_github_gomarkdown_markdown",
+)

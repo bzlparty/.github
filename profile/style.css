@@ -1,0 +1,43 @@
+html, body {
+  width: 620px;
+  margin: 0 auto;
+}
+
+img[src^="https://github.com"] {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  transition: none;
+}
+
+a.github-icon-link {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  margin-top: 1em;
+}
+
+nav > a > img {
+  height: 62px;
+  width: auto;
+}
+
+nav > ul {
+  list-style-type: none;
+}
+
+nav > ul > li {
+  float: left;
+  font-size: 1.3em;
+  margin: 0 10px;
+}
+
+footer {
+  margin-top: 62px;
+}
+
+footer > p {
+  text-align: center;
+}

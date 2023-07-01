@@ -1,0 +1,7 @@
+diff --git a/BUILD.bazel b/BUILD.bazel
+new file mode 100644
+index 0000000..848a715
+--- /dev/null
++++ b/BUILD.bazel
+@@ -0,0 +1 @@
++exports_files(["lissom.css", "lissom.min.css"])
