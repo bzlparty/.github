@@ -1,0 +1,45 @@
+load("@gazelle//:def.bzl", "gazelle")
+load("@rules_pkg//pkg:mappings.bzl", "pkg_filegroup")
+load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
+load("//tools:pkg_docs.bzl", "docs_files")
+load("//tools:website.bzl", "html_filegroup", "root_index")
+
+PACKAGES = [
+    "lib_common",
+    "rules_webdev",
+    "rules-template.sh",
+]
+
+docs_files(PACKAGES)
+
+root_index(
+    name = "root",
+    src = "//profile:README.md",
+    pkgs = PACKAGES,
+)
+
+pkg_filegroup(
+    name = "srcs",
+    srcs = PACKAGES + ["root"],
+    prefix = "srcs",
+)
+
+html_filegroup(
+    name = "html",
+    srcs = PACKAGES + ["root"],
+    assets = "//profile:assets",
+    prefix = "html",
+)
+
+pkg_tar(
+    name = "website",
+    srcs = [
+        ":LICENSE",
+        ":html",
+        ":srcs",
+    ],
+    out = "bzlparty-website.tar",
+)
+
+# gazelle:prefix github.com/bzlparty/.github
+gazelle(name = "gazelle")

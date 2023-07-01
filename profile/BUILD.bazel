@@ -1,0 +1,16 @@
+load("@rules_pkg//pkg:mappings.bzl", "pkg_files")
+
+exports_files(["README.md"])
+
+pkg_files(
+    name = "assets",
+    srcs = [
+        "@lissom_css//:lissom.css",
+        "style.css",
+        "avatar.jpg",
+        "logo.jpg",
+        "favicon.ico",
+    ],
+    prefix = "assets",
+    visibility = ["//:__pkg__"],
+)

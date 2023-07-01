@@ -1,0 +1,22 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+exports_files(["page.tpl.html"])
+
+go_binary(
+    name = "builder",
+    embed = [":tools_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "tools_lib",
+    srcs = ["builder.go"],
+    importpath = "github.com/bzlparty/.github/tools",
+    visibility = ["//visibility:private"],
+    deps = [
+        "@com_github_gomarkdown_markdown//:go_default_library",
+        "@com_github_gomarkdown_markdown//ast:go_default_library",
+        "@com_github_gomarkdown_markdown//html:go_default_library",
+        "@com_github_gomarkdown_markdown//parser:go_default_library",
+    ],
+)
