@@ -43,7 +43,7 @@ pkg_tar(
 )
 
 write_file(
-  name = "gen_website",
+  name = "gen_website_sh",
   out = "gen_website.sh",
   content = [
     "#!/usr/bin/env bash",
@@ -54,8 +54,8 @@ write_file(
 )
 
 sh_binary(
-  name = "gen_website_sh",
-  srcs = [":gen_website"],
+  name = "gen_website",
+  srcs = [":gen_website_sh"],
   data = [":website"],
 )
 
