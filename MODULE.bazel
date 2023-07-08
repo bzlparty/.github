@@ -31,7 +31,6 @@ bazel_dep(name = "gazelle", version = "0.31.1", dev_dependency = True)
 
 bazel_dep(name = "lib_common", version = "2.0.0")
 bazel_dep(name = "rules_webdev", version = "0.0.0")
-bazel_dep(name = "rules-template.sh", version = "0.0.0")
 
 git_override(
     module_name = "lib_common",
@@ -54,11 +53,6 @@ git_override(
         "//patches:rules_webdev_docs_build_bazel.patch",
     ],
     remote = "git@github.com:bzlparty/rules_webdev.git",
-)
-
-local_path_override(
-    module_name = "rules-template.sh",
-    path = "../rules-template.sh",
 )
 
 go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")

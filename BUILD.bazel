@@ -8,7 +8,6 @@ load("//tools:website.bzl", "html_filegroup", "root_index")
 PACKAGES = [
     "lib_common",
     "rules_webdev",
-    "rules-template.sh",
 ]
 
 docs_files(PACKAGES)
