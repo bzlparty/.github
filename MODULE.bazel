@@ -31,6 +31,7 @@ bazel_dep(name = "gazelle", version = "0.31.1", dev_dependency = True)
 
 bazel_dep(name = "lib_common", version = "2.0.0")
 bazel_dep(name = "rules_webdev", version = "0.0.0")
+bazel_dep(name = "tool-versions-generator", version = "0.0.0")
 
 git_override(
     module_name = "lib_common",
@@ -53,6 +54,17 @@ git_override(
         "//patches:rules_webdev_docs_build_bazel.patch",
     ],
     remote = "git@github.com:bzlparty/rules_webdev.git",
+)
+
+git_override(
+    module_name = "tool-versions-generator",
+    commit = "89c3fe5af732a9bdd4d529d56cfa06b23604bc76",
+    patch_strip = 1,
+    patches = [
+        "//patches:tool_versions_generator_build_bazel.patch",
+        "//patches:tool_versions_generator_module_bazel.patch",
+    ],
+    remote = "git@github.com:bzlparty/tool-versions-generator.git",
 )
 
 go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
