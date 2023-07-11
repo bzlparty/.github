@@ -1,0 +1,14 @@
+diff --git a/docs/BUILD.bazel b/docs/BUILD.bazel
+deleted file mode 100644
+index 0dd2a8c..0000000
+--- a/docs/BUILD.bazel
++++ /dev/null
+@@ -1,8 +0,0 @@
+-load("@aspect_bazel_lib//lib:docs.bzl", "stardoc_with_diff_test", "update_docs")
+-
+-stardoc_with_diff_test(
+-    name = "rules",
+-    bzl_library_target = "//pandoc:defs",
+-)
+-
+-update_docs(name = "update")

@@ -8,6 +8,7 @@ load("//tools:website.bzl", "html_filegroup", "root_index")
 PACKAGES = [
     "lib_common",
     "rules_webdev",
+    "rules_pandoc",
     "tool-versions-generator",
 ]
 

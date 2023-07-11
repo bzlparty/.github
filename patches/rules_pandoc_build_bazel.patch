@@ -1,0 +1,21 @@
+diff --git a/BUILD.bazel b/BUILD.bazel
+index bdbc789..e4ee6c1 100644
+--- a/BUILD.bazel
++++ b/BUILD.bazel
+@@ -1,11 +1,6 @@
+-load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary")
+-
+-gazelle_binary(
+-    name = "gazelle_bin",
+-    languages = ["@bazel_skylib_gazelle_plugin//bzl"],
+-)
+-
+-gazelle(
+-    name = "gazelle",
+-    gazelle = "gazelle_bin",
++exports_files(["README.md"])
++filegroup(
++    name = "docs",
++    srcs = glob(["**/*.md"], exclude = ["CONTRIBUTING.md", ".bcr/*"]),
++    visibility = ["//visibility:public"],
+ )

@@ -31,6 +31,7 @@ bazel_dep(name = "gazelle", version = "0.31.1", dev_dependency = True)
 
 bazel_dep(name = "lib_common", version = "2.0.0")
 bazel_dep(name = "rules_webdev", version = "0.0.0")
+bazel_dep(name = "rules_pandoc", version = "0.0.0")
 bazel_dep(name = "tool-versions-generator", version = "0.0.0")
 
 git_override(
@@ -54,6 +55,18 @@ git_override(
         "//patches:rules_webdev_docs_build_bazel.patch",
     ],
     remote = "git@github.com:bzlparty/rules_webdev.git",
+)
+
+git_override(
+    module_name = "rules_pandoc",
+    commit = "edf8d7be53f81b02d2948a1cc9da8f70c67e697b",
+    patch_strip = 1,
+    patches = [
+        "//patches:rules_pandoc_build_bazel.patch",
+        "//patches:rules_pandoc_module_bazel.patch",
+        "//patches:rules_pandoc_docs_build_bazel.patch",
+    ],
+    remote = "git@github.com:bzlparty/rules_pandoc.git",
 )
 
 git_override(
