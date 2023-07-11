@@ -9,6 +9,7 @@ PACKAGES = [
     "lib_common",
     "rules_webdev",
     "rules_pandoc",
+    "rules-template.sh",
     "tool-versions-generator",
 ]
 

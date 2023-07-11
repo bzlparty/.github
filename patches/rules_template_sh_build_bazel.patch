@@ -1,0 +1,33 @@
+diff --git a/BUILD.bazel b/BUILD.bazel
+index 25f19ae..77c7617 100644
+--- a/BUILD.bazel
++++ b/BUILD.bazel
+@@ -1,23 +1,6 @@
+-load("@bazel_skylib//rules:write_file.bzl", "write_file")
+-
+-write_file(
+-  name = "launcher",
+-  out = "launcher.sh",
+-  content = [
+-    "scrip_path=$(realpath ./rules-template.sh)",
+-    "cd $1",
+-    "$scrip_path $2 $3"
+-  ],
+-  is_executable = True,
+-)
+-
+-sh_binary(
+-  name = "rules_template",
+-  srcs = [":launcher"],
+-  data = ["rules-template.sh"],
+-)
+-
+-alias(
+-  name = "bin",
+-  actual = "rules_template",
++exports_files(["README.md"])
++filegroup(
++    name = "docs",
++    srcs = glob(["*.md"]),
++    visibility = ["//visibility:public"],
+ )

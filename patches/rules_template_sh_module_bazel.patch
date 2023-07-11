@@ -1,0 +1,10 @@
+diff --git a/MODULE.bazel b/MODULE.bazel
+index 59e4268..81b84a0 100644
+--- a/MODULE.bazel
++++ b/MODULE.bazel
+@@ -2,5 +2,3 @@ module(
+   name = "rules-template.sh",
+   version = "0.0.0",
+ )
+-
+-bazel_dep(name = "bazel_skylib", version = "1.4.2")
