@@ -11,7 +11,7 @@ def root_index(name, src, pkgs):
 sed "1 s|(.*)|(/assets/logo.jpg)|" $(location {src});
 echo "\n## Party stuff";
 for r in {rules}; do
-  echo "- [$$r]($$r)"
+  echo "- [$$r]($$r/)"
 done;
 ) > $(OUTS)""".format(rules = " ".join(pkgs), src = src),
   )
